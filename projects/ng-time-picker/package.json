@@ -1,0 +1,26 @@
+{
+  "name": "ng-time-picker",
+  "version": "0.0.1",
+  "description": "A simple angular time picker. The module design by the angular.",
+  "author": "Yaseer Munas",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yaseern/TimePickerLibrary.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Yaseern/TimePickerLibrary/issues"
+  },
+  "homepage": "https://github.com/Yaseern/TimePickerLibrary",
+  "keywords": [
+    "angular",
+    "typescript",
+    "javascript",
+    "time picker",
+    "angular time picker"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^8.2.14",
+    "@angular/core": "^8.2.14"
+  }
+}

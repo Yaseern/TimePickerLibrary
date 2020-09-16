@@ -10,3 +10,7 @@ export function getNUntilNumbers(lastNumber: number): number[] {
 export function getZeroFillNumbers(numbers: number[]): string[] {
     return numbers.map((x) => ('0' + x).slice(-2))
 }
+
+export function fillZeroAsPrefixForNumber(value) {
+    return ('0' + value).slice(-2)
+}

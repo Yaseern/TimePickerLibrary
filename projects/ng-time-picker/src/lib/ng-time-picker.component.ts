@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener, ElementRef, Output, Input, EventEmitter } from '@angular/core';
-import { isValidTimeFormat, getZeroFillNumbers, getNUntilNumbers } from '../common/utils';
+import { isValidTimeFormat, getZeroFillNumbers, getNUntilNumbers, fillZeroAsPrefixForNumber } from '../common/utils';
 
 @Component({
   selector: 'ng-time-picker',
@@ -32,124 +32,7 @@ import { isValidTimeFormat, getZeroFillNumbers, getNUntilNumbers } from '../comm
     </div>
   </div>
   `,
-  styles: [`.time-picker {
-    .dropdown {
-      position: absolute;
-      z-index: 5;
-      background: #fff;
-      -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, .15);
-      box-shadow: 0 1px 6px rgba(0, 0, 0, .15);
-      width: 10em;
-      height: 10em;
-      font-weight: 400;
-  
-      .select-list {
-        width: 10em;
-        height: 10em;
-        overflow: hidden;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
-        -webkit-box-align: stretch;
-        -ms-flex-align: stretch;
-        align-items: stretch;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-      }
-  
-      ul {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        outline: 0;
-        -webkit-box-flex: 1;
-        -ms-flex: 1 1 0.00001px;
-        flex: 1 1 0.00001px;
-        overflow-x: hidden;
-        overflow-y: auto;
-  
-        :is(.hint) {
-          pointer-events: none;
-        }
-  
-        li {
-          list-style: none;
-          text-align: center;
-          padding: .3em 0;
-          color: #161616;
-  
-          &.active:not(.hint) {
-            background: rgba(0, 0, 0, .12);
-            color: #3f51b5;
-          }
-  
-          &:hover:not(.active):not(.hint) {
-            background: rgba(0, 0, 0, .04);
-            cursor: pointer;
-          }
-        }
-      }
-    }
-  
-    .controls {
-      position: absolute;
-      z-index: 3;
-      -webkit-box-orient: horizontal;
-      -ms-flex-flow: row nowrap;
-      flex-flow: row nowrap;
-      -webkit-box-pack: end;
-      -ms-flex-pack: end;
-      justify-content: flex-end;
-      -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-      align-items: stretch;
-      pointer-events: none;
-      bottom: 5px;
-      right: -10px;
-  
-      * {
-        cursor: pointer;
-        width: auto;
-        -webkit-box-orient: vertical;
-        -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        padding: 0 .35em;
-        color: #d2d2d2;
-        line-height: 100%;
-        font-style: normal;
-        pointer-events: auto;
-        -webkit-transition: color .2s, opacity .2s;
-        transition: color .2s, opacity .2s;
-  
-        &:hover {
-          color: #797979
-        }
-      }
-  
-      :active,
-      :focus {
-        outline: 0
-      }
-  
-      .char {
-        font-size: 1.1em;
-        line-height: 100%;
-        -webkit-margin-before: -.15em;
-      }
-    }
-  
-  }`]
+  styleUrls: ['./ng-time-picker.component.scss']
 })
 export class NgTimePickerComponent implements OnInit {
 
@@ -161,8 +44,8 @@ export class NgTimePickerComponent implements OnInit {
   hours: number[] | string[];
   minutes: number[] | string[];
 
-  selectedHour: number
-  selectedMinute: number
+  selectedHour: number | string;
+  selectedMinute: number | string;
   isClicked: boolean = false
 
   constructor(private elementRef: ElementRef) {
@@ -180,7 +63,15 @@ export class NgTimePickerComponent implements OnInit {
     this.isClicked = false
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    if (this.timeModel) {      
+      const timeArray = this.timeModel.split(':');
+      if (timeArray.length > 1) {
+        this.selectedHour = fillZeroAsPrefixForNumber(timeArray[0]);
+        this.selectedMinute = fillZeroAsPrefixForNumber(timeArray[1]);
+      }
+    }
+  }
 
   setHour(value) {
     this.selectedHour = value;

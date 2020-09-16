@@ -37,6 +37,128 @@
           }
         }
       }
+    },
+    "timePickerSample": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/timePickerSample",
+      "sourceRoot": "projects/timePickerSample/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/timePickerSample",
+            "index": "projects/timePickerSample/src/index.html",
+            "main": "projects/timePickerSample/src/main.ts",
+            "polyfills": "projects/timePickerSample/src/polyfills.ts",
+            "tsConfig": "projects/timePickerSample/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/timePickerSample/src/favicon.ico",
+              "projects/timePickerSample/src/assets"
+            ],
+            "styles": [
+              "projects/timePickerSample/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/timePickerSample/src/environments/environment.ts",
+                  "with": "projects/timePickerSample/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "timePickerSample:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "timePickerSample:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "timePickerSample:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/timePickerSample/src/test.ts",
+            "polyfills": "projects/timePickerSample/src/polyfills.ts",
+            "tsConfig": "projects/timePickerSample/tsconfig.spec.json",
+            "karmaConfig": "projects/timePickerSample/karma.conf.js",
+            "assets": [
+              "projects/timePickerSample/src/favicon.ico",
+              "projects/timePickerSample/src/assets"
+            ],
+            "styles": [
+              "projects/timePickerSample/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/timePickerSample/tsconfig.app.json",
+              "projects/timePickerSample/tsconfig.spec.json",
+              "projects/timePickerSample/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/timePickerSample/e2e/protractor.conf.js",
+            "devServerTarget": "timePickerSample:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "timePickerSample:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "ng-time-picker"
 }

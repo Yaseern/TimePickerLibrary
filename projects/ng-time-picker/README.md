@@ -46,12 +46,9 @@ class AppModule {}
 
 | Option            | Type                           | Default           | Description                                                                                                                                     |
 | ----------------- | ------------------------------ | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| timeModel         | input                          |                   | which binds select stores the user value in a variable   
-                                          |
+| timeModel         | input                          |                   | which binds select stores the user value in a variable                                                                                           |
 | timeModelChange   | event                          |                   | On Change event when select the option                                                                                                           |
-| isDisabled        | boolean                        | false             | If field disabled then this should set true                                                                                                     |
-                                                                                         
-
+| isDisabled        | boolean                        | false             | If field disabled then this should set true                                                                                                     |                                                                                         
 
 ## License
 

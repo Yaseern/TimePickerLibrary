@@ -1,7 +1,7 @@
 {
-  "name": "ng-time-picker",
-  "version": "0.0.1",
-  "description": "A simple angular time picker. The module design by the angular.",
+  "name": "ngy-time-picker",
+  "version": "0.0.2",
+  "description": "A simple dropdown time picker for angular. It shows fields for hours and minutes",
   "author": "Yaseer Munas",
   "repository": {
     "type": "git",

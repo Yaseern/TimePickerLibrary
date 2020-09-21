@@ -35,11 +35,10 @@ import { isValidTimeFormat, getZeroFillNumbers, getNUntilNumbers, fillZeroAsPref
   styleUrls: ['./ng-time-picker.component.scss']
 })
 export class NgTimePickerComponent implements OnInit {
-
-  @Input() timeModel: string
+  
   @Input() isDisabled: boolean = false;
-
-  @Output() save: EventEmitter<string> = new EventEmitter<string>();
+  @Input() timeModel: string
+  @Output() timeModelChange: EventEmitter<string> = new EventEmitter<string>();
 
   hours: number[] | string[];
   minutes: number[] | string[];
@@ -87,13 +86,14 @@ export class NgTimePickerComponent implements OnInit {
     this.selectedMinute = undefined;
     this.selectedHour = undefined;
     this.timeModel = null;
+    this.timeModelChange.emit(this.timeModel)
   }
 
   setTime() {
-    this.timeModel = `${this.selectedHour ? this.selectedHour : 0}:${this.selectedMinute ? this.selectedMinute : 0}`
+    this.timeModel = `${this.selectedHour ? this.selectedHour : '00'}:${this.selectedMinute ? this.selectedMinute : '00'}`
 
-    if (isValidTimeFormat(this.timeModel) || this.timeModel == null) {
-      this.save.emit(this.timeModel)
+    if (isValidTimeFormat(this.timeModel)) {
+      this.timeModelChange.emit(this.timeModel)
     }
   }
 }

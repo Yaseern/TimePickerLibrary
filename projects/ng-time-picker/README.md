@@ -1,24 +1,62 @@
-# NgTimePicker
+<div align="center">
+  <h1>ngy-time-picker</h1>
+  <br>
+  <h4>A simple time picker for Angular</h4>
+</div>
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
+# TimePickerLibrary
 
-## Code scaffolding
+DEMO: Update soon
 
-Run `ng generate component component-name --project ng-time-picker` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ng-time-picker`.
-> Note: Don't forget to add `--project ng-time-picker` or else it will be added to the default project in your `angular.json` file. 
+## Dependencies
+Latest version available for all version of Angular
 
-## Build
+## Install
 
-Run `ng build ng-time-picker` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm install ngy-time-picker
+```
 
-## Publishing
+## Setup
 
-After building your library with `ng build ng-time-picker`, go to the dist folder `cd dist/ng-time-picker` and run `npm publish`.
+**step 1:** add NgYasYearPickerModule to app NgModule or import to the shared module
 
-## Running unit tests
+```typescript
+import { CommonModule } from '@angular/common';
 
-Run `ng test ng-time-picker` to execute the unit tests via [Karma](https://karma-runner.github.io).
+import { NgTimePickerModule } from 'ng-time-picker/ng-year-picker';
 
-## Further help
+@NgModule({
+  imports: [
+    CommonModule,
+    NgTimePickerModule// NgTimePickerModule added
+  ],
+  bootstrap: [AppComponent],
+  declarations: [AppComponent]
+})
+class AppModule {}
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+<ng-time-picker [timeModel]="model1" (timeModelChange)="onChangeDoSomething1()"></ng-time-picker>
+
+<ng-time-picker [timeModel]="model2" (timeModelChange)="onChangeDoSomething2()" [isDisabled]="true"></ng-time-picker>
+
+
+## Options
+
+| Option            | Type                           | Default           | Description                                                                                                                                     |
+| ----------------- | ------------------------------ | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| timeModel         | input                          |                   | which binds select stores the user value in a variable   
+                                          |
+| timeModelChange   | event                          |                   | On Change event when select the option                                                                                                           |
+| isDisabled        | boolean                        | false             | If field disabled then this should set true                                                                                                     |
+                                                                                         
+
+
+## License
+
+MIT
+
+---
+
+> GitHub [@Yaseern](https://github.com/Yaseern) &nbsp;&middot;&nbsp;

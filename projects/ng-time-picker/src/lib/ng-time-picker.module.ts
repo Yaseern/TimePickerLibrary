@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 import { NgTimePickerComponent } from './ng-time-picker.component';
+import { NgTimePickerService } from './ng-time-picker.service';
 
 @NgModule({
   declarations: [NgTimePickerComponent],
-  imports: [    
-    CommonModule,
-    FormsModule
+  imports: [
+    CommonModule
   ],
-  exports: [NgTimePickerComponent]
+  exports: [NgTimePickerComponent],
+  providers: [NgTimePickerService]
 })
 export class NgTimePickerModule { }

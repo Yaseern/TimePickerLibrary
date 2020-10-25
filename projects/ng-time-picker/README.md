@@ -9,6 +9,12 @@
 DEMO: https://yaseern.github.io/awesomeAngular/time
 
 ## Dependencies
+
+- moment js must installed 
+```bash
+npm install moment
+```
+
 Latest version available for all version of Angular
 
 ## Install

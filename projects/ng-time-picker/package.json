@@ -1,7 +1,7 @@
 {
   "name": "ngy-time-picker",
-  "version": "0.0.2",
-  "description": "A simple dropdown time picker for angular. It shows fields for hours and minutes",
+  "version": "2.0.0",
+  "description": "A simple time picker for angular (Dynamic time format). Supported for Template driven and Reactive-form",
   "author": "Yaseer Munas",
   "repository": {
     "type": "git",
@@ -16,7 +16,8 @@
     "typescript",
     "javascript",
     "time picker",
-    "angular time picker"
+    "angular time picker",
+    "time"
   ],
   "license": "MIT",
   "peerDependencies": {

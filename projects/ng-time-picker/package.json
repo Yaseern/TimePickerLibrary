@@ -1,6 +1,6 @@
 {
   "name": "ngy-time-picker",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A simple time picker for angular (Dynamic time format). Supported for Template driven and Reactive-form",
   "author": "Yaseer Munas",
   "repository": {

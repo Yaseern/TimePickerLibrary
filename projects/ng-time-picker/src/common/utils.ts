@@ -1,6 +1,8 @@
 import * as moment from 'moment';
 import { TimeFormat } from '../lib/time-picker-options';
 
+const momentNS = moment;
+
 export function isValidTimeFormat(value, isTime24 = true) {
     let time12HourFormatRegex = /(((0[1-9])|(1[0-2])):([0-5])([0-9])\s(A|P|a|p)(M|m))/
     let time24HourFormatRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/gm
@@ -22,10 +24,10 @@ export function fillZeroAsPrefixForNumber(value) {
 }
 
 export function showTimeFormat(value: string, format: string = TimeFormat.time24) {
-    return moment(value, 'h:mm:ss A').format(format);
+    return momentNS(value, 'h:mm:ss A').format(format);
 }
 
 export function addTime(startTime: string, durationAmount: number, timeFormat: string = TimeFormat.time24) {
-    var timeValue = moment(startTime, 'h:mm:ss A').add(durationAmount, 'hours').format(timeFormat);      
+    var timeValue = momentNS(startTime, 'h:mm:ss A').add(durationAmount, 'hours').format(timeFormat);      
     return timeValue;
 }

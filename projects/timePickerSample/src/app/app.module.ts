@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgTimePickerModule } from 'projects/ng-time-picker/src/lib/ng-time-picker.module';
-
+import { FormsModule } from '@angular/forms';
+import { NgTimePickerModule } from 'ngy-time-picker';
 
 @NgModule({
   declarations: [
@@ -13,6 +13,7 @@ import { NgTimePickerModule } from 'projects/ng-time-picker/src/lib/ng-time-pick
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     NgTimePickerModule
   ],
   providers: [],

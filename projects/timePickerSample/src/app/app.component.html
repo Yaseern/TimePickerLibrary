@@ -1,16 +1,37 @@
 <div class="container">
   <div style="text-align:center">
     <h1>
-      Welcome to {{ title }}!
+      {{ title }}!
     </h1>
   </div>
   <h3>Here are some examples to help you start:</h3>
 
   <div class="row">
-    <span> Time Picker Picker</span>
-    <ng-time-picker></ng-time-picker>
+    <span> Time Picker Picker 1</span>
+    <div>
+      <ng-time-picker [(ngModel)]="timeModel1" id="time-picker1"></ng-time-picker>
+      selected : {{timeModel1}}
+    </div>
+  </div>
+
+  <br>
+  <hr>
+  <br>
+  <div class="row">
+    <span> Time Picker Picker 2</span>
+    <div>
+      <div>
+        <ng-time-picker [(ngModel)]="timeModel2" id="time-picker2"></ng-time-picker>
+        selected (from) : {{timeModel2}}
+      </div>
+      <br>
+      <div>
+        <ng-time-picker [(ngModel)]="timeModel3" [timeRange]="timeModel2" id="time-picker3"></ng-time-picker>
+        selected (to) : {{timeModel3}}
+      </div>
+    </div>
   </div>
   <br>
   <br>
- 
+
 </div>

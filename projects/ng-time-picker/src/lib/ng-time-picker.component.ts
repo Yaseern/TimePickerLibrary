@@ -10,7 +10,7 @@ import { Time12HrFormatOptions, TimeFormat } from './time-picker-options';
     <div class="field-group">
       <div>
         <input type="text" [value]="value" [placeholder]="isDisabled ? '' : format" [id]="id" 
-        (click)="isClicked=true" readonly [disabled]="isDisabled">
+        (click)="isClicked=true;" readonly [disabled]="isDisabled">
         <div class="controls" (click)="clearTime()">
           <span class="clear-btn"><span class="char">×</span></span>
         </div>
@@ -22,12 +22,14 @@ import { Time12HrFormatOptions, TimeFormat } from './time-picker-options';
         <ul class="hours">
           <li class="hint">{{timeFormatLabel[0]}}</li>
           <li *ngFor="let item of hours;let i = index" [attr.data-index]="i" [class.active]="selectedHour == item"
+            [scrollTo]="selectedHour == item"
             [attr.disabled]="isDisabledHour(item)" (click)="setHour(item)">{{item}}</li>
         </ul>
 
         <ul class="minutes">
           <li class="hint">{{timeFormatLabel[1]}}</li>
           <li *ngFor="let item of minutes;let i = index" [attr.data-index]="i" [class.active]="selectedMinute == item"
+            [scrollTo]="selectedMinute == item"
             [attr.disabled]="isDisabledMinute(item)" (click)="setMinute(item)">{{item}}</li>
         </ul>
 
